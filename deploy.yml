@@ -4,11 +4,11 @@
   tasks:
     - name: Install Java
       yum:
-        name: java-1.8.0-openjdk
+        name: openjdk-11-jre-headless
         state: present
     - name: Copy jar file
       copy:
-        src: /var/lib/jenkins/workspace/ansible-jenkins/target/ansible-jenkins-0.0.1-SNAPSHOT.jar
+        src: /var/lib/jenkins/jobs/spring-petclinic/branches/main/builds/6/spring-petclinic-2.7.3.jar
         dest: /home/ec2-user/
     - name: Start jar file
-      shell: java -jar /home/ec2-user/ansible-jenkins-0.0.1-SNAPSHOT.jar
+      shell: nohup java -jar /home/ubuntu/spring-petclinic-2.7.3.jar & 1>&2 > /dev/null
