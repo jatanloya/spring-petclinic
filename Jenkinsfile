@@ -9,7 +9,7 @@ pipeline {
         //Stage to deploy jar file using Ansible
         stage('Deploy') {
             steps {
-                sh './spring-petclinic/script.sh'
+                sh '/home/ubuntu/spring-petclinic/script.sh'
             }
         }
     }
