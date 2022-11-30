@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install Java
+      yum:
+        name: java-1.8.0-openjdk
+        state: present
+    - name: Copy jar file
+      copy:
+        src: /var/lib/jenkins/workspace/ansible-jenkins/target/ansible-jenkins-0.0.1-SNAPSHOT.jar
+        dest: /home/ec2-user/
+    - name: Start jar file
+      shell: java -jar /home/ec2-user/ansible-jenkins-0.0.1-SNAPSHOT.jar

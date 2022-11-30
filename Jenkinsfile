@@ -6,6 +6,12 @@ pipeline {
                 sh './mvnw package'
             }
         }
+        //Stage to deploy jar file using Ansible
+        stage('Deploy') {
+            steps {
+                sh 'ansible-playbook -i hosts deploy.yml'
+            }
+        }
     }
 
 
