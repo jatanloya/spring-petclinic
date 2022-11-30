@@ -9,7 +9,8 @@ pipeline {
         //Stage to deploy jar file using Ansible
         stage('Deploy') {
             steps {
-                sh 'ansible-playbook -i hosts:servers deploy.yml'
+		        sh 'sudo apt-get install ansible'
+                sh '/var/jenkins_home/script.sh'
             }
         }
     }
