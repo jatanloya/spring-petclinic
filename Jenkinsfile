@@ -9,7 +9,7 @@ pipeline {
         //Stage to deploy jar file using Ansible
         stage('Deploy') {
             steps {
-                sh 'ansible-playbook -i hosts deploy.yml'
+                sh 'ansible-playbook -i 3.137.193.35 deploy.yml'
             }
         }
     }
