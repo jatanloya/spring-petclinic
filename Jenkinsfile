@@ -9,6 +9,7 @@ pipeline {
         //Stage to deploy jar file using Ansible
         stage('Deploy') {
             steps {
+                sh 'cd /home/ubuntu/spring-petclinic'
                 sh 'ansible-playbook -i hosts deploy.yml'
             }
         }
